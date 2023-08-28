@@ -3,11 +3,11 @@ name: Build and Run Docker Container
 on:
   push:
     branches:
-      - master  # Adjust the branch name as needed
+      - master
 
 jobs:
   build-and-run:
-    runs-on: ubuntu-latest  # You can choose a different runner if needed
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -19,7 +19,12 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t huri_project .
+          echo "Built Docker image"
+
+      - name: Run Docker container
+        run: |
           docker run -d -p 5000:5000 --name huri_container huri_project
+          echo "Started Docker container"
 
       - name: Show running containers
         run: docker ps
