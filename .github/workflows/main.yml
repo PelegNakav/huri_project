@@ -1,4 +1,4 @@
-name: Build and Run Docker Container
+name: Build and Test Docker Container
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build-and-run:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,3 +28,14 @@ jobs:
 
       - name: Show running containers
         run: docker ps
+
+      - name: Wait for container to start
+        run: sleep 10  # Adjust the duration as needed
+
+      - name: Test site with curl
+        run: |
+          curl http://127.0.0.1:5000/
+          # Add more curl commands to test different endpoints and actions
+
+      - name: Stop Docker container
+        run: docker stop huri_container
