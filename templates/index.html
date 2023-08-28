@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSV Upload and Display</title>
+</head>
+<body>
+    <h1>Upload and Display CSV Data</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="csv_file" accept=".csv">
+        <button type="submit">Upload and Display</button>
+    </form>
+    <hr>
+    {% if data %}
+    {{ data | safe }}
+    {% else %}
+    <p>No data available.</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Excel Data Display</title>
+</head>
+<body>
+    <h1>Excel Data</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <!-- Add more columns as needed -->
+        </tr>
+        {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <!-- Add more columns as needed -->
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
