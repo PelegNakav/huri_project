@@ -3,4 +3,4 @@ flask-uploads
 pandas
 requests
 Werkzeug==0.16.0
-markupsafe
+markupsafe==2.0.1
