@@ -30,7 +30,7 @@ jobs:
         run: docker ps
 
       - name: Wait for container to start
-        run: sleep 10  # Adjust the duration as needed
+        run: sleep 60  # Adjust the duration as needed
 
       - name: Test site with curl
         run: |
