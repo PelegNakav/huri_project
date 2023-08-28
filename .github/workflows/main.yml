@@ -30,12 +30,14 @@ jobs:
         run: docker ps
 
       - name: Wait for container to start
-        run: sleep 60  # Adjust the duration as needed
+        run: sleep 20  # Adjust the duration as needed
+
+      - name: Wait for container to start
+        run: docker logs huri_container  # Adjust the duration as needed
 
       - name: Test site with curl
         run: |
           curl http://127.0.0.1:5000/
-          # Add more curl commands to test different endpoints and actions
 
       - name: Stop Docker container
         run: docker stop huri_container
