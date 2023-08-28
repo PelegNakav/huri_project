@@ -25,19 +25,14 @@ jobs:
         run: |
           docker run -d -p 5000:5000 --name huri_container huri_project
           echo "Started Docker container"
+          sleep 10
+          curl http://127.0.0.1:5000/
 
       - name: Show running containers
         run: docker ps
 
       - name: Wait for container to start
-        run: sleep 20  # Adjust the duration as needed
-
-      - name: Wait for container to start
-        run: docker logs huri_container  # Adjust the duration as needed
-
-      - name: Test site with curl
-        run: |
-          curl http://127.0.0.1:5000/
+        run: docker logs huri_container  
 
       - name: Stop Docker container
         run: docker stop huri_container
